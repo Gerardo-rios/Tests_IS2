@@ -2,12 +2,15 @@ from typing import Tuple
 from typing import Optional
 
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 
 
 class DriverWrapper:
+
     def __init__(self, driver):
         self.driver = driver
-        self.driver.implicitly_wait(20)
+        self.driver.implicitly_wait(5000)
 
     def find_elements(self, locator: Tuple[str, str]):
         elements = self.driver.find_elements(*locator)
@@ -39,12 +42,9 @@ class DriverWrapper:
         open_new_tab_command = 'window.open('');'
         self.driver.execute_script(open_new_tab_command)
 
-    def switch_to_window(self, window_number: int):
-        self.driver.switch_to.window(self.driver.window_handles[window_number])
-
-    def switch_to_frame(self, frame):
-        self.driver.switch_to.frame(self.driver.find_element(*frame)) 
-    
+    def get_current_path(self):
+        get_window_path = 'return window.location.pathname'
+        return self.driver.execute_script(get_window_path)
 
     def visit_page(self, page_link: str):
         self.driver.get(page_link)
@@ -54,9 +54,13 @@ class DriverWrapper:
 
     def click(self, locator):
         self.driver.find_element(*locator).click()
-    
+
     def write(self, locator, text):
         self.driver.find_element(*locator).send_keys(text)
 
     def get_current_page_url(self):
         return self.driver.current_url
+
+    def wait_element(self, locator):
+        wait = WebDriverWait(self.driver, 50000)
+        wait.until(expected_conditions.visibility_of_element_located(locator))
