@@ -64,3 +64,8 @@ class DriverWrapper:
     def wait_element(self, locator):
         wait = WebDriverWait(self.driver, 50000)
         wait.until(expected_conditions.visibility_of_element_located(locator))
+    
+    '''
+    def get_localStorage(self,item):
+        return self.driver.execute_script(f"return window.localStorage[{item}];")
+    '''
