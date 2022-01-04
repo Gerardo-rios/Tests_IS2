@@ -38,7 +38,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             Arrays.asList("Espresso", "Latte", "Mocha", "Café con leche", "Cold brew");
 
     @VisibleForTesting
-    public static final String VALID_ENDING = "coffee";
+    public static final String VALID_ENDING = "cafe";
 
     private EditText mInputText;
     private View mSuccessView;

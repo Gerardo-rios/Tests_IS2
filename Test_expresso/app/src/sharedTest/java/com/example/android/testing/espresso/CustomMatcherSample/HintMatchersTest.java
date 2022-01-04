@@ -72,7 +72,7 @@ public class HintMatchersTest {
     @Before
     public void initValidStrings() {
         // Produce a string with valid ending.
-        mStringWithValidEnding = "Random " + MainActivity.VALID_ENDING;
+        mStringWithValidEnding = MainActivity.VALID_ENDING;
 
         // Get one of the available coffee preparations.
         mValidStringToBeTyped = MainActivity.COFFEE_PREPARATIONS.get(0);

@@ -17,8 +17,7 @@
 <resources>
 
     <string name="app_name">Expresso Example</string>
-    <string name="instructions">See MainActivity.java for valid options or type something ending
-        in \"coffee\".
+    <string name="instructions">Revisa MainActivity.java por opciones válidas o ingresa algo que termine con \"coffee\".
     </string>
     <string name="hint">Como te gusta el cafe o coffee?</string>
     <string name="validate">Validar</string>

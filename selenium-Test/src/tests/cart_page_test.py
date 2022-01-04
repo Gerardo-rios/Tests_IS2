@@ -31,6 +31,7 @@ class CartPageTestCase(BaseTestCase, InventoryPageMixin, LoginPageMixin, Checkou
         self.assertEqual(assert_parcial_total_text, parcial_total_text)
         self.assertEqual(assert_tax, tax_text)
         self.assertEqual(assert_total, total_text)
+        pdb.set_trace()
         cart_page_pom.finish_checkout()
         finish_title_text = cart_page_pom.get_checkout_complete_title()
         finish_subtitle_text = cart_page_pom.get_checkout_complete_subtitle()
